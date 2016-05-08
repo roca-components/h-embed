@@ -32,3 +32,16 @@ which in turn is based on [HInclude](https://mnot.github.io/hinclude/).
 
 [pjax](https://github.com/defunkt/jquery-pjax) has similar capabilities, though
 it's typically used in a different context.
+
+
+Contributing
+------------
+
+* ensure [Node](http://nodejs.org) is installed
+* `npm install` downloads dependencies
+* `npm run compile` performs a one-time compilation, generating `dist/bundle.js`
+* `npm start` automatically recompiles while monitoring code changes
+* `npm test` checks code for stylistic consistency
+
+note that the basic infrastructure is provided by
+[ES6 seed](https://github.com/FND/es6-seed)
