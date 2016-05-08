@@ -16,6 +16,19 @@
 	<hr>
 	<a is="h-embed" href="lipsum.txt" container="blockquote">lipsum [TXT]</a>
 
+	<script>
+if(!window.Promise) {
+	document.write('<script src="polyfills/es6-promise.min.js"><\/script>');
+}
+
+if(!window.fetch) {
+	document.write('<script src="polyfills/fetch.js"><\/script>');
+}
+
+if(!document.registerElement) {
+	document.write('<script src="polyfills/document-register-element.js"><\/script>');
+}
+	</script>
 	<script src="dist/bundle.js"></script>
 </body>
 
