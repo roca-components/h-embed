@@ -13,7 +13,7 @@ export default class HEmbed extends HTMLAnchorElement {
 		}
 	}
 
-	transclude(html) {
+	transclude() {
 		if(!this.href) {
 			return;
 		}
@@ -21,7 +21,8 @@ export default class HEmbed extends HTMLAnchorElement {
 		this.retrieve().
 			then(html => {
 				this.generateWrapper();
-				this.wrapper.innerHTML = sanitize(html);
+				let doc = sanitize(html);
+				this.wrapper.innerHTML = doc.body.innerHTML;
 			}).
 			catch(err => {
 				console.error(err); // eslint-disable-line no-console
@@ -38,7 +39,7 @@ export default class HEmbed extends HTMLAnchorElement {
 					throw new Error("failed to retrieve transclusion resource");
 				}
 				// TODO: check MIME type?
-				return res.text(); // TODO: discard script tags
+				return res.text();
 			});
 	}
 
@@ -68,5 +69,5 @@ function sanitize(html) {
 
 	// TODO: also strip `onload` and similar attributes?
 
-	return doc.body.innerHTML;
+	return doc;
 }
